@@ -9,7 +9,6 @@ app.use(express.urlencoded({ extended: true }));
 
 app.post("/", async (req, res, next) => {
   try {
-    console.log(req.body);
     const { developers } = req.body;
     const promises = developers.map(async (d) => {
       const resp = await axios.get(`https://api.github.com/users/${d}`);
